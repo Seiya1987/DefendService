@@ -1,6 +1,8 @@
 package com.zero.defendservice;
 
 import android.app.Application;
+import android.app.job.JobService;
+import android.content.Intent;
 import android.util.Log;
 
 /**
@@ -14,5 +16,6 @@ public class MyApp extends Application {
         super.onCreate();
         Log.e(TAG, "MyApp onCreate");
         MyJobService.scheduleService(this.getApplicationContext());
+        startService(new Intent(this.getApplicationContext(), MyJobService.class));
     }
 }
